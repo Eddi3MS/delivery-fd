@@ -21,6 +21,7 @@ import { ErrorHandling } from '@/errors/errorHandling/ErrorHandling'
 import { SignUpUserSchema, signUpUserSchema } from '@/schemas/userSchema'
 import { UserService } from '@/services/authService'
 import { useUserStore } from '@/store/useUserStore'
+import { formatPhoneNumber, removeNotNumbers } from '@/utils/inputs'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
 import { toast } from 'sonner'
@@ -97,11 +98,21 @@ export default function SignUp() {
                 <FormField
                   control={form.control}
                   name="phone"
-                  render={({ field }) => (
+                  render={({ field: { onChange, value, ...rest } }) => (
                     <FormItem>
                       <FormLabel>Telefone</FormLabel>
                       <FormControl>
-                        <Input {...field} />
+                        <Input
+                          {...rest}
+                          onChange={(e) => {
+                            const valueNum = removeNotNumbers(
+                              e.target.value
+                            ).slice(0, 11)
+
+                            onChange(valueNum)
+                          }}
+                          value={formatPhoneNumber(value)}
+                        />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -114,7 +125,7 @@ export default function SignUp() {
                     <FormItem>
                       <FormLabel>Senha</FormLabel>
                       <FormControl>
-                        <Input {...field} />
+                        <Input {...field} type="password" />
                       </FormControl>
 
                       <FormMessage />

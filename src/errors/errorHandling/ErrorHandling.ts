@@ -14,9 +14,9 @@ class ErrorHandling {
     } else {
       this._statusCode = error?.response?.status ?? 400
       this._message =
-        error.response.data.message ||
-        error.response.data.error ||
-        error.message ||
+        error?.response?.data?.message ||
+        error?.response?.data?.error ||
+        error?.message ||
         defaultMessage
     }
   }

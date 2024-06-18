@@ -22,7 +22,6 @@ import { SignInUserSchema, signInUserSchema } from '@/schemas/userSchema'
 import { UserService } from '@/services/authService'
 import { useUserStore } from '@/store/useUserStore'
 import { zodResolver } from '@hookform/resolvers/zod'
-import Image from 'next/image'
 import { useForm } from 'react-hook-form'
 import { toast } from 'sonner'
 
@@ -94,7 +93,7 @@ export default function SignIn() {
                     <FormItem>
                       <FormLabel>Senha</FormLabel>
                       <FormControl>
-                        <Input {...field} />
+                        <Input {...field} type="password" />
                       </FormControl>
 
                       <FormMessage />
