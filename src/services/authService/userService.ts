@@ -10,7 +10,7 @@ class UserService {
 
   public static async updateProfile(
     id: string,
-    data: any
+    data: Partial<SignUpUserSchema>
   ): Promise<AxiosResponse<UserDTO>> {
     return await api.put<UserDTO>(`/users/update/${id}`, data)
   }
