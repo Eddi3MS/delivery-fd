@@ -24,8 +24,10 @@ class ProductsService {
     return await api.post<ProductDTO>(`products/create`, data)
   }
 
-  public static async list(): Promise<AxiosResponse<ProductsList>> {
-    return await api.get<ProductsList>(`/products/list`)
+  public static async list(): Promise<ProductsList> {
+    const { data } = await api.get<ProductsList>(`/products/list`)
+
+    return data
   }
 }
 

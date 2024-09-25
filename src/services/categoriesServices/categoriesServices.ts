@@ -35,8 +35,10 @@ class CategoriesService {
     return await api.post<CategoryDTO>(`categories/reorder`, data)
   }
 
-  public static async list(): Promise<AxiosResponse<CategoryDTO[]>> {
-    return await api.get<CategoryDTO[]>(`/categories/list`)
+  public static async list(): Promise<CategoryDTO[]> {
+    const { data } = await api.get<CategoryDTO[]>(`/categories/list`)
+
+    return data
   }
 }
 

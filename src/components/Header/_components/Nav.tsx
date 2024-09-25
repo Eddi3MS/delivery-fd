@@ -11,7 +11,7 @@ export default function Nav({
 }: HTMLAttributes<HTMLDivElement>) {
   return (
     <nav className={cn('gap-4 items-center flex', className)} {...rest}>
-      <Link href="/produtos" title="lista de produtos">
+      <Link href="/products" title="lista de produtos">
         Produtos
       </Link>
 

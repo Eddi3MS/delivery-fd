@@ -13,9 +13,9 @@ export default function Layout({
   const router = useRouter()
 
   useLayoutEffect(() => {
-    if (!isAdmin) {
-      router.push('/')
-    }
+    if (isAdmin) return
+
+    router.push('/')
   }, [isAdmin, router])
 
   if (!isAdmin) {

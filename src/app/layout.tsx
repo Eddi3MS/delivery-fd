@@ -1,11 +1,9 @@
 'use client'
 
+import Header from '@/components/Header'
+import { Toaster } from '@/components/ui/sonner'
 import { Inter } from 'next/font/google'
 import './globals.css'
-import dynamic from 'next/dynamic'
-import { Toaster } from '@/components/ui/sonner'
-
-const Header = dynamic(() => import('@/components/Header'))
 
 const inter = Inter({ subsets: ['latin'] })
 

@@ -30,10 +30,6 @@ class UserService {
   public static async getProfile(id: string): Promise<AxiosResponse<UserDTO>> {
     return await api.get<UserDTO>(`/users/profile/${id}`)
   }
-
-  public static async getMe(): Promise<AxiosResponse<UserDTO>> {
-    return await api.get<UserDTO>(`/users/me`)
-  }
 }
 
 export { UserService }
